@@ -38,3 +38,14 @@ function checkToken(req, res) {
     console.log('req.user', req.user);
     res.json(req.exp);
 }
+
+/*-- Helper Functions --*/
+
+function createJWT(user) {
+    return jwt.sign(
+      // data payload
+      { user },
+      process.env.SECRET,
+      { expiresIn: '24h' }
+    );
+  }

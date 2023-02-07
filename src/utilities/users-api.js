@@ -3,7 +3,7 @@ import { getToken } from'./users-service';
 const BASE_URL = '/api/users';
 
 export async function signUp(userData) {
-  const res = await fetch(BASE_URL, 'POST', userData);
+  return sendRequest (BASE_URL, 'POST', userData);
 }
 
 export async function login(credentials) {

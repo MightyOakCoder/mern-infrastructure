@@ -17,11 +17,13 @@ export default class SignUpForm extends Component {
       // We don't want to send the confirm or error properties
       // Let's make a copy of this.state (we never want to directly modify the state obj)
       const formData = {...this.state};
+      console.log(formData)
       delete formData.error;
       delete formData.confirm;
       const user = await signUp(formData);
       this.props.setUser(user);
-    } catch {
+    } catch(e) {
+      console.log(e)
       // An error occurred
       this.setState({error: 'Sign Up Failed - Try Again'});
     }
